@@ -15,6 +15,6 @@ Single window, single playlist, no thrills, bare-bones mpc client for emacs tayl
 | + | `mpc volume +5` |
 | - | `mpc volume -5` |
 | f | follow = move cursor to current song |
-| g | revert playlist |
+| g | revert playlist buffer |
 | U | `mpc clear && mpc update --wait  && mpc add /` |
 | q | quit window |
