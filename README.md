@@ -4,7 +4,7 @@ Single window, single playlist, no thrills, bare-bones mpc client for emacs tayl
 # Keybindings
 | Key | command | 
 | --- | --- |
-| RET | `mpc play` song under cursor |
+| RET | `mpc play` (song under cursor) |
 | p | `mpc toggle` |
 | j | jump to song
 | n | `mpc next` | 
@@ -14,6 +14,7 @@ Single window, single playlist, no thrills, bare-bones mpc client for emacs tayl
 | s | `mpc single` |
 | + | `mpc volume +5` |
 | - | `mpc volume -5` |
+| . | `mpc status` |
 | f | follow = move cursor to current song |
 | g | revert playlist buffer |
 | U | `mpc clear && mpc update --wait  && mpc add /` |
