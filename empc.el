@@ -14,7 +14,7 @@
 (defvar empc-buffer-name "*empc*")
 
 (defun empc ()
-  "Create a new empc buffer. If it already existst switch to it."
+  "Create a new empc buffer. If it already exists switch to it."
   (interactive)
   (if (get-buffer empc-buffer-name)
       (set-window-buffer (selected-window) empc-buffer-name)
@@ -27,7 +27,8 @@
   (set-window-buffer (selected-window) empc-buffer-name)
   (with-current-buffer empc-buffer-name
     (empc-mode)
-    (insert (shell-command-to-string "mpc playlist | nl")) 
+    (insert (shell-command-to-string "mpc playlist"))
+    (rectangle-number-lines (point-min) (- (point-max) 1) 1 "%-5d ")
     (empc-finalize-buffer)))
 
 (defun empc-finalize-buffer ()
@@ -49,14 +50,14 @@
   "Clear the playlist, run a DB update, add root folder to playlist"
   (interactive)
   (when (y-or-n-p "Run database update?" )
-    (shell-command "mpc clear && mpc update --wait  && mpc add /")
+    (shell-command-to-string "mpc clear && mpc update --wait  && mpc add /")
     (empc-revert-playlist)))
     
 (defun empc-play-highlighted ()
   "Play the currently highlighted song."
   (interactive)
   (let ((pos (number-to-string (line-number-at-pos))))
-    (shell-command (concat "mpc -q play " pos))
+    (shell-command-to-string (concat "mpc -q play " pos))
     (message (concat "Playing #" pos))))
 
 (defun empc-search-playlist ()
@@ -64,10 +65,11 @@
   (interactive)
   (let* ((playlist
           (split-string
-           (shell-command-to-string
-            "mpc playlist | nl -n ln") "\n"))
+	   (with-current-buffer empc-buffer-name
+	     (buffer-string))
+	   "\n"))
          (song-id (completing-read "Song: " playlist nil t)))
-    (shell-command (concat "mpc -q play " (car (split-string song-id " "))))
+    (shell-command-to-string (concat "mpc -q play " (car (split-string song-id " "))))
     (empc-follow)))
 
 (defun empc-follow ()
