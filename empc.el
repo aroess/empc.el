@@ -98,6 +98,8 @@
   (define-key empc-mode-map "p" (empc-generic-command "toggle" t nil))
   (define-key empc-mode-map "n" (empc-generic-command "next" t t))
   (define-key empc-mode-map "b" (empc-generic-command "prev" t t))
+  (define-key empc-mode-map "c" (empc-generic-command "seek +5" nil nil))
+  (define-key empc-mode-map "x" (empc-generic-command "seek -5" nil nil))
   (define-key empc-mode-map "r" (empc-generic-command "random" nil nil))
   (define-key empc-mode-map "R" (empc-generic-command "repeat" nil nil))
   (define-key empc-mode-map "s" (empc-generic-command "single" nil nil))
