@@ -9,6 +9,8 @@ Single window, single playlist, no thrills, bare-bones mpc client for emacs tayl
 | j | jump to song
 | n | `mpc next` | 
 | b | `mpc prev` | 
+| c | `mpc seek +5` |
+| x | `mpc seek -5` |
 | r | `mpc random` |     
 | R | `mpc repeat` |      
 | s | `mpc single` |
