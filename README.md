@@ -1,5 +1,5 @@
 # empc
-Single window, single playlist, no thrills, bare-bones mpc client for emacs taylored to _my_ use case. 
+Single window, single playlist, no thrills, bare-bones mpd client for emacs taylored to _my_ use case. Requires `mpd` and `mpc` to be installed. 
 
 # Keybindings
 | Key | command | 
