@@ -4,7 +4,7 @@ Empc is a single window, single playlist, no thrills, bare-bones mpd client for 
 ![image](https://github.com/aroess/empc/blob/main/screenshot.png?raw=true)
 
 ## Installation
-Save `empc.el` somewhere in your `.emacs.d` folder and put this in your init.el:
+Save `empc.el` somewhere in your `.emacs.d` folder and put this in your `init.el`:
 
 ```elisp
 (load-file "~/.emacs.d/path_to/empc.el")`
